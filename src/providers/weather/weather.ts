@@ -16,11 +16,13 @@ export class WeatherProvider {
   constructor(public http: HttpClient) {
     console.log('Hello WeatherProvider Provider');
     this.url =
-      'http://api.openweathermap.org/data/2.5/forecast?q=Thessaloniki&units=metric&cnt=5&appid=' +
+      'http://api.openweathermap.org/data/2.5/forecast?q=London&appid=' +
       this.apiKey;
+    // Working URL api.openweathermap.org/data/2.5/forecast?q=London&appid=
   }
 
-  getWeather(id, name, country) {
+  getWeather(list, city) {
     return this.http.get(this.url);
+    // .map(res => res.json());
   }
 }

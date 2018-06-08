@@ -35,20 +35,19 @@ export class HomePage {
   ) {}
 
   ionViewWillEnter() {
-    this.city = {
-      id: 519188,
-      name: 'Novinki',
-      country: 'RU',
-      coord: {
-        lon: 37.666668,
-        lat: 55.683334
-      }
-    };
+    // this.city = {
+    //   id: 519188,
+    //   name: 'Novinki',
+    //   country: 'RU',
+    //   coord: {
+    //     lon: 37.666668,
+    //     lat: 55.683334
+    //   }
+    // };
 
-    this.weatherProvider
-      .getWeather(this.city.id, this.city.name, this.city.country)
-      .subscribe(weather => {
-        console.log(weather);
-      });
+    this.weatherProvider.getWeather(this.city, this.list).subscribe(weather => {
+      console.log(weather);
+      this.weather = weather.toString();
+    });
   }
 }
