@@ -7,7 +7,7 @@ import { WeatherProvider } from '../../providers/weather/weather';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  weather: any;
+  weather: Array<any>;
   city: {
     id: number;
     name: string;
@@ -45,9 +45,8 @@ export class HomePage {
     //   }
     // };
 
-    this.weatherProvider.getWeather(this.city, this.list).subscribe(weather => {
+    this.weatherProvider.getWeather().subscribe(weather => {
       console.log(weather);
-      this.weather = weather.toString();
     });
   }
 }
