@@ -12,14 +12,19 @@ import 'rxjs/add/operator/map';
 export class WeatherProvider {
   apiKey = 'd7bf9911c431b4fa480b5784f3615374';
 
-  city = 'Paris';
+  // Here choose your city name
+  // Todo: try to make it work by id
+  city = 'Marseille';
+
+  list: any;
   url;
 
   constructor(public http: HttpClient) {
     console.log('Hello WeatherProvider Provider');
     this.url =
-      'http://api.openweathermap.org/data/2.5/weather?q=' +
+      'http://api.openweathermap.org/data/2.5/forecast?q=' +
       this.city +
+      // this.list +
       '&appid=' +
       this.apiKey;
     // Working URL api.openweathermap.org/data/2.5/forecast?q=London&appid=

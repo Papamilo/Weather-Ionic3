@@ -8,27 +8,7 @@ import { WeatherProvider } from '../../providers/weather/weather';
 })
 export class HomePage {
   weather: Array<any>;
-  city: {
-    id: number;
-    name: string;
-    country: string;
-    coord: {
-      lat: number;
-      lon: number;
-    };
-  };
-  list: {
-    weather: {
-      id: number;
-      main: string;
-      description: string;
-      icon: any;
-    };
-    clouds: string;
-    wind: number;
-    snow: any;
-    sys: string;
-  };
+
   constructor(
     public navCtrl: NavController,
     private weatherProvider: WeatherProvider
@@ -47,6 +27,12 @@ export class HomePage {
 
     this.weatherProvider.getWeather().subscribe(weather => {
       console.log(weather);
+      // this.weather = weather.weather.base;
+      // Todo: vu que c'est un array parcours le avec un forEach !!!
+      // this.weather.forEach(city => {
+      //   weather = weather.city;
+      // });
+      // this.weather = weather.weather.base;
     });
   }
 }
